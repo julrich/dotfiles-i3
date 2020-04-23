@@ -73,6 +73,7 @@ bindsym $mod+x move workspace to output right
 
 # rofi
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Iosevka 10" '
+# krunner
 bindsym $mod+space exec --no-startup-id krunner
 
 # Screenshot (now provided by Plasma)
