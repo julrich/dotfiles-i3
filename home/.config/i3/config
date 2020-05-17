@@ -1,8 +1,10 @@
 ## quick terminal
 # Add this to your i3 config (~/.config/i3/config) and restart i3 (Super+Shift+R)
-exec --no-startup-id "konsole"
-for_window [class="konsole"] move scratchpad, move position 150 150, resize set 1700 800;
-bindsym Mod1+space [class="konsole"] scratchpad show;
+exec --no-startup-id urxvtc -name scratchmux -e tmux attach
+for_window [instance="scratchmux"] move scratchpad, move position 100 100, resize set 1800 900;
+bindsym Mod1+space [instance="scratchmux"] scratchpad show;
+
+exec --no-startup-id "firefox"
 
 # (No) Title Bars
 for_window [class="^.*"] border pixel 0
@@ -63,7 +65,7 @@ font pango:Iosevka, icomoon\-feather 9
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec /home/julrich/.scripts/urxvt/urxvt
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -73,8 +75,6 @@ bindsym $mod+x move workspace to output right
 
 # rofi
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Iosevka 10" '
-# krunner
-bindsym $mod+space exec --no-startup-id krunner
 
 # Screenshot (now provided by Plasma)
 # bindsym Print exec --no-startup-id spectacle
@@ -215,28 +215,13 @@ bindsym $mod+r mode "resize"
 #        }
 #}
 # Starting things with i3
-# exec --no-startup-id xcompmgr -C &    # Bare compositor to allow transparency
-for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
 exec --no-startup-id feh --bg-fill ~/.ruhmesmeile/rm-wallpaper.jpg
 exec --no-startup-id picom --config ~/.config/picom.conf
-## Plasma Integration
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill, floating enable, border none
-# If the system is french the name changes:
-for_window [title="Bureau — Plasma"] kill, floating enable, border none
 
 ## Avoid tiling popups, dropdown windows from plasma
 # for the first time, manually resize them, i3 will remember the setting for floating windows
-for_window [class="plasmashell"] floating enable
-for_window [class="Plasma"] floating enable, border none
-for_window [title="plasma-desktop"] floating enable, border none
-for_window [title="win7"] floating enable, border none
-for_window [class="krunner"] floating enable, border none
-for_window [class="Kmix"] floating enable, border none
-for_window [class="Klipper"] floating enable, border none
-for_window [class="Plasmoidviewer"] floating enable, border none
+###for_window [class="Kmix"] floating enable, border none
 
 ### i3-gaps stuff ###
 
@@ -294,6 +279,7 @@ mode "$mode_gaps_outer" {
 
 # see: https://www.reddit.com/r/i3wm/comments/6lo0z0/how_to_use_polybar/djvp7ok/
 exec_always --no-startup-id ~/.config/i3/polybar.sh &
+exec_always --no-startup-id ~/.scripts/spotify/launchlistener.sh &
 client.focused #6699CC #6699CC #1B2B34 #6699CC
 client.focused_inactive #6699CC #1B2B34 #6699CC #6699CC
 # client.focused_inactive #5FB3B3 #5FB3B3 #D8DEE9 #A7ADBA
