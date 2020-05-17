@@ -1,7 +1,7 @@
 ## quick terminal
 # Add this to your i3 config (~/.config/i3/config) and restart i3 (Super+Shift+R)
 exec --no-startup-id urxvtc -name scratchmux -e tmux attach
-for_window [instance="scratchmux"] move scratchpad, move position 100 100, resize set 1800 900;
+for_window [instance="scratchmux"] move scratchpad, move position 2 6, resize set 1916 1066;
 bindsym Mod1+space [instance="scratchmux"] scratchpad show;
 
 exec --no-startup-id "firefox"
