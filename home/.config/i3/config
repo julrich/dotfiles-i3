@@ -68,7 +68,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+x move workspace to output right
 
 # rofi
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Iosevka 10" '
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Scientifica 10" '
 
 # Screenshot (now provided by Plasma)
 # bindsym Print exec --no-startup-id spectacle
