@@ -211,7 +211,7 @@ bindsym $mod+r mode "resize"
 #}
 # Starting things with i3
 for_window [class="systemsettings"] floating enable
-exec --no-startup-id feh --bg-fill ~/.ruhmesmeile/rm-wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/.ruhmesmeile/kickstartDS-wallpaper.jpg
 exec --no-startup-id picom --config ~/.config/picom.conf
 
 ## Avoid tiling popups, dropdown windows from plasma
