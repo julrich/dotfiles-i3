@@ -1,5 +1,6 @@
 exec --no-startup-id "firefox"
 exec --no-startup-id "xbindkeys --poll-rc"
+exec --no-startup-id "xmodmap ~/.Xmodmap"
 
 # (No) Title Bars
 for_window [class="^.*"] border pixel 0
