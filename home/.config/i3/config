@@ -279,6 +279,10 @@ exec --no-startup-id urxvtc -name scratchmux -e tmux attach
 for_window [instance="scratchmux"] move scratchpad, move position 6 36, resize set 1904 1019;
 bindsym Mod1+space [instance="scratchmux"] scratchpad show;
 
+# automatically configure displays
+# exec --no-startup-id /usr/bin/intel-virtual-output -f &
+# exec_always --no-startup-id ~/.screenlayout/oberkassel3.sh &
+
 # see: https://www.reddit.com/r/i3wm/comments/6lo0z0/how_to_use_polybar/djvp7ok/
 exec_always --no-startup-id ~/.config/i3/polybar.sh &
 exec_always --no-startup-id ~/.scripts/spotify/launchlistener.sh &
@@ -287,3 +291,4 @@ client.focused_inactive #6699CC #1B2B34 #6699CC #6699CC
 # client.focused_inactive #5FB3B3 #5FB3B3 #D8DEE9 #A7ADBA
 client.unfocused #343D46 #343D46 #D8DEE9 #343D46
 client.urgent #EC5f67 #EC5f67 #1B2B34 #EC5f67
+
