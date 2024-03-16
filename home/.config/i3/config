@@ -282,6 +282,9 @@ exec --no-startup-id urxvtc -name scratchmux -e tmux attach
 for_window [instance="scratchmux"] move scratchpad, move position 6 36, resize set 1904 1019;
 bindsym Mod1+space [instance="scratchmux"] scratchpad show;
 
+## emoji picker
+bindsym Mod1+numbersign x11-emoji-picker;
+
 # automatically configure displays
 # exec --no-startup-id /usr/bin/intel-virtual-output -f &
 # exec_always --no-startup-id ~/.screenlayout/oberkassel3.sh &
